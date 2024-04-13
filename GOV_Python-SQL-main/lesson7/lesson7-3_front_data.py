@@ -13,7 +13,10 @@ def get_contacts()->list:
             '''
             cursor.execute(sql)
             datas:list = cursor.fetchmany(10)
-            return datas
+            contact=[]
+            for item in datas:
+                contact.append({'id':item[0],'客戶名稱':item[1],'姓名':item[2],'電話':item[3],'郵件':item[4]})
+            return contact
 
 source_data = get_contacts()
 st.dataframe(source_data)
