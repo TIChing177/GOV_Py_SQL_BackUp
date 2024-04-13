@@ -4,6 +4,7 @@ import psycopg2
 import os
 load_dotenv()
 
+@st.cache_resource #增加效能
 def get_contacts()->list:
     with psycopg2.connect(os.environ['postgre_password']) as conn:
         with conn.cursor()  as cursor:
