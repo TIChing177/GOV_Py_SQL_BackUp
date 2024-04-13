@@ -24,5 +24,10 @@ def get_names()->list:
 source_data = get_names()
 
 with st.sidebar:
-    option = st.selectbox('Clients Name',get_names())
+    option = st.selectbox(
+        'Clients Name',
+        get_names(),
+        index=None,
+        placeholder='Choose a Clinet'
+        )
     st.write('當前客戶資料',option)
