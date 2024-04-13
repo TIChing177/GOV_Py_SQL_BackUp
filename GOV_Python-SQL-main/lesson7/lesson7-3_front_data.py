@@ -4,13 +4,16 @@ import psycopg2
 import os
 load_dotenv()
 
-with psycopg2.connect(os.environ['postgre_password']) as conn:
-    with conn.cursor()  as cursor:
-        sql = '''
-        SELECT 聯絡人id,客戶名稱,聯絡人姓名,電話,郵件
-        FROM 聯絡人 LEFT JOIN 客戶 ON 聯絡人.客戶id = 客戶.客戶_id
-        '''
-        cursor.execute(sql)
-        datas:list = cursor.fetchmany(10)
+def get_contacts()->list:
+    with psycopg2.connect(os.environ['postgre_password']) as conn:
+        with conn.cursor()  as cursor:
+            sql = '''
+            SELECT 聯絡人id,客戶名稱,聯絡人姓名,電話,郵件
+            FROM 聯絡人 LEFT JOIN 客戶 ON 聯絡人.客戶id = 客戶.客戶_id
+            '''
+            cursor.execute(sql)
+            datas:list = cursor.fetchmany(10)
+            return datas
 
-datas
+source_data = get_contacts()
+st.dataframe(source_data)
