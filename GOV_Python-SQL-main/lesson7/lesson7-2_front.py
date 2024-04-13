@@ -39,6 +39,7 @@ with tab1:
 with tab2:
    st.header("A dog")
    st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
+   st.write('A friendly companier that')
 
 with tab3:
    st.header("An owl")
