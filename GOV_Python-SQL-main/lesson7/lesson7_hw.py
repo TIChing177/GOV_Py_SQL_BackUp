@@ -13,7 +13,7 @@ def get_names()->list:
             FROM station
             '''
             cursor.execute(sql)
-            datas:list[tuple] = cursor.fetchmany(10)
+            datas:list[tuple] = cursor.fetchmany(1000)
             names=[]
             for item in datas:
                 names.append(item[0])
