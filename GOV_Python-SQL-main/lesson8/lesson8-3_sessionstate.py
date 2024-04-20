@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.title('Session_state Basic')
-st.write(st.session_state)
+#st.write(st.session_state)
 
 #使用 input widget
 numbers:int = st.slider('value',min_value=1,max_value=10,key='myslider')
