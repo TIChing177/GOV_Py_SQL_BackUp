@@ -21,3 +21,6 @@ create table if not exists youbike(
 	on delete cascade
 	on update cascade
 );
+
+drop table 站點資訊;
+drop table youbike;
