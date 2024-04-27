@@ -33,3 +33,25 @@ on conflict do nothing;
 insert into youbike
 values ('2024-04-27 09:39:21','500101001',28,1,27,true)
 on conflict do nothing;
+
+
+select count(*) from youbike;
+
+/*取出最新時間youbike資料*/
+SELECT 日期,站點資訊.站點名稱,行政區,站點地址,lat,lng,總車輛,可借,可還,可借,活動
+FROM youbike
+JOIN 站點資訊 ON youbike.編號 = 站點資訊.站點編號
+WHERE (日期,編號) IN (
+	SELECT MAX(日期),編號
+	FROM youbike
+	GROUP BY 編號
+	);
+
+/*依據行政區，取出最新時間youbike資料*/
+select 日期, 站點資訊.站點編號, 站點名稱, 行政區, 站點地址, lat, lng, 總車輛, 可借,可還, 活動
+from youbike left join 站點資訊 on youbike.編號 = 站點資訊.站點編號
+where (日期,編號) in (
+	select max(日期),編號
+	from youbike
+	group by 編號
+	) and 行政區 = '大安區';
