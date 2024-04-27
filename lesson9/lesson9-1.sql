@@ -22,8 +22,8 @@ create table if not exists youbike(
 	on update cascade
 );
 
-drop table 站點資訊;
 drop table youbike;
+drop table 站點資訊;
 
 insert into 站點資訊
 values ('500101001','YouBike2.0_捷運科技大樓站','大安區','復興南路二段235號前',25.02605,121.5436)
