@@ -26,6 +26,6 @@ drop table 站點資訊;
 drop table youbike;
 
 insert into 站點資訊
-value ('500101001','YouBike2.0_捷運科技大樓站','大安區','復興南路二段235號前',25.02605,121.5436)
+values ('500101001','YouBike2.0_捷運科技大樓站','大安區','復興南路二段235號前',25.02605,121.5436)
 /*當值重複或衝突時*/
 on conflict do nothing;
