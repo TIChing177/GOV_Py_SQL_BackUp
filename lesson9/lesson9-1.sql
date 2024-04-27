@@ -33,3 +33,9 @@ on conflict do nothing;
 insert into youbike
 values ('2024-04-27 09:39:21','500101001',28,1,27,true)
 on conflict do nothing;
+
+
+select count(*) from youbike;
+
+/**/
+select max(日期),編號 from 
