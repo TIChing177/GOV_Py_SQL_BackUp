@@ -29,3 +29,7 @@ insert into 站點資訊
 values ('500101001','YouBike2.0_捷運科技大樓站','大安區','復興南路二段235號前',25.02605,121.5436)
 /*當值重複或衝突時*/
 on conflict do nothing;
+
+insert into youbike
+values ('2024-04-27 09:39:21','500101001',28,1,27,true)
+on conflict do nothing;
